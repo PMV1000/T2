@@ -1,0 +1,486 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Product A",
+      "price": 29.99,
+      "desc": "Description for Product A",
+      "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+      "discount": 0.1,
+      "catagoly": "Thời trang nữ",
+      "deleted": false,
+      "isFeature": true
+    },
+    {
+      "id": "2",
+      "name": "Product B",
+      "price": 19.99,
+      "desc": "Description for Product B",
+      "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+      "discount": 0.05,
+      "catagoly": "Thời trang nữ",
+      "deleted": false,
+      "isFeature": false
+    },
+    {
+      "id": "3",
+      "name": "Product C",
+      "price": 49.99,
+      "desc": "Description for Product C",
+      "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+      "discount": 0.15,
+      "catagoly": "Điện tử",
+      "deleted": false,
+      "isFeature": true
+    },
+    {
+      "id": "4",
+      "name": "Product D",
+      "price": 99.99,
+      "desc": "Description for Product D",
+      "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+      "discount": 0.2,
+      "catagoly": "Điện tử",
+      "deleted": false,
+      "isFeature": false
+    },
+    {
+      "id": "5",
+      "name": "Product E",
+      "price": 15.99,
+      "desc": "Description for Product E",
+      "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+      "discount": 0.05,
+      "catagoly": "Đồ gia dụng",
+      "deleted": false,
+      "isFeature": true
+    },
+    {
+      "id": "6",
+      "name": "Product F",
+      "price": 39.99,
+      "desc": "Description for Product F",
+      "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+      "discount": 0.1,
+      "catagoly": "Đồ gia dụng",
+      "deleted": false,
+      "isFeature": false
+    },
+    {
+      "id": "7",
+      "name": "Product G",
+      "price": 24.99,
+      "desc": "Description for Product G",
+      "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+      "discount": 0.07,
+      "catagoly": "Thể thao",
+      "deleted": false,
+      "isFeature": true
+    },
+    {
+      "id": "8",
+      "name": "Product H",
+      "price": 59.99,
+      "desc": "Description for Product H",
+      "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+      "discount": 0.12,
+      "catagoly": "Thể thao",
+      "deleted": false,
+      "isFeature": false
+    },
+    {
+      "id": "9",
+      "name": "Product I",
+      "price": 9.99,
+      "desc": "Description for Product I",
+      "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+      "discount": 0.03,
+      "catagoly": "Nhà sách",
+      "deleted": false,
+      "isFeature": true
+    },
+    {
+      "id": "10",
+      "name": "Product J",
+      "price": 29.99,
+      "desc": "Description for Product J",
+      "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+      "discount": 0.08,
+      "catagoly": "Nhà sách",
+      "deleted": false,
+      "isFeature": true
+    },
+    {
+      "id": "Cxlysm85G4gaXlprOPekpe6fp71Np8O8",
+      "name": "hsi",
+      "price": "68777",
+      "catagoly": "12",
+      "desc": "Mô Tả Sản Phẩm",
+      "discount": 0,
+      "isFeature": false,
+      "deleted": true,
+      "image": "C"
+    },
+    {
+      "id": "6eywFf2OvBW7IvGAwY08wZNmZBcgBFE3",
+      "name": "sj",
+      "price": "456789",
+      "catagoly": "12",
+      "desc": "Mô Tả Sản Phẩm",
+      "discount": 0,
+      "isFeature": false,
+      "deleted": true,
+      "image": "C"
+    }
+  ],
+  "carts": [
+    {
+      "id": "1",
+      "userId": 101,
+      "products": [
+        {
+          "productId": "7",
+          "quantity": 12
+        },
+        {
+          "productId": "9",
+          "quantity": 18
+        },
+        {
+          "productId": "5",
+          "quantity": 6
+        },
+        {
+          "productId": "3",
+          "quantity": 1
+        }
+      ],
+      "deleted": false
+    },
+    {
+      "id": "2",
+      "userId": 102,
+      "products": [],
+      "deleted": false
+    },
+    {
+      "id": "3",
+      "userId": 103,
+      "products": [
+        {
+          "productId": 4,
+          "quantity": 1
+        },
+        {
+          "productId": 2,
+          "quantity": 1
+        }
+      ],
+      "deleted": false
+    },
+    {
+      "id": "4",
+      "userId": 105,
+      "products": [],
+      "deleted": false
+    },
+    {
+      "id": "5",
+      "userId": 105,
+      "products": [
+        {
+          "productId": 4,
+          "quantity": 7
+        }
+      ],
+      "deleted": false
+    },
+    {
+      "id": "6",
+      "userId": 105,
+      "products": [
+        {
+          "productId": 4,
+          "quantity": 1
+        }
+      ],
+      "deleted": false
+    },
+    {
+      "id": "7",
+      "userId": 107,
+      "products": {
+        "id": "7",
+        "userId": 107,
+        "products": [
+          {
+            "productId": 7,
+            "quantity": 1
+          },
+          {
+            "productId": 4,
+            "quantity": 1
+          }
+        ],
+        "deleted": false
+      },
+      "deleted": false
+    },
+    {
+      "id": "8",
+      "userId": 108,
+      "products": [],
+      "deleted": false
+    },
+    {
+      "id": "9",
+      "userId": 109,
+      "products": [
+        {
+          "productId": 3,
+          "quantity": 1
+        }
+      ],
+      "deleted": false
+    },
+    {
+      "id": "10",
+      "userId": 110,
+      "products": [
+        {
+          "productId": 5,
+          "quantity": 2
+        }
+      ],
+      "deleted": false
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Thời Trang Nữ",
+      "categoryChild": [
+        "12",
+        "gNZfvS0xuJf43ZxeYdbl0SZ61g8H28IJ"
+      ],
+      "productIds": [
+        "1",
+        "4"
+      ],
+      "deleted": false
+    },
+    {
+      "id": "11",
+      "name": "Áo Nữ",
+      "productIds": [
+        "1"
+      ],
+      "categoryChild": null,
+      "deleted": false
+    },
+    {
+      "id": "12",
+      "name": "Váy Nữ",
+      "productIds": [
+        "4"
+      ],
+      "categoryChild": null,
+      "deleted": false
+    },
+    {
+      "id": "13",
+      "name": "Áo Quần Nữ",
+      "productIds": [
+        "1"
+      ],
+      "categoryChild": [
+        "11"
+      ],
+      "deleted": false
+    },
+    {
+      "id": "2",
+      "name": "Điện Tử",
+      "productIds": [
+        "3"
+      ],
+      "categoryChild": null,
+      "deleted": false
+    },
+    {
+      "id": "21",
+      "name": "Laptop",
+      "productIds": [
+        "2"
+      ],
+      "categoryChild": null,
+      "deleted": false
+    },
+    {
+      "id": "22",
+      "name": "Điện Thoại",
+      "productIds": [],
+      "categoryChild": null,
+      "deleted": false
+    },
+    {
+      "id": "3",
+      "name": "Đồ Gia Dụng",
+      "productIds": [
+        "5",
+        "6"
+      ],
+      "categoryChild": null,
+      "deleted": false
+    },
+    {
+      "id": "4",
+      "name": "Thể Thao",
+      "productIds": [
+        "7",
+        "8"
+      ],
+      "categoryChild": null,
+      "deleted": false
+    },
+    {
+      "id": "5",
+      "name": "Nhà Sách",
+      "productIds": [
+        "9",
+        "10"
+      ],
+      "categoryChild": null,
+      "deleted": false
+    },
+    {
+      "id": "hNpytmOmqhIpTHFIlHBRAZ4HgHwhQkN7",
+      "name": "s",
+      "categoryChild": null,
+      "productIds": [],
+      "deleted": false
+    },
+    {
+      "id": "R9YUCpF3WC43ulkB5MLgziU1pLM3WUPP",
+      "name": "thu",
+      "categoryChild": null,
+      "productIds": [],
+      "deleted": false
+    },
+    {
+      "name": "gh",
+      "id": "DZI6Ye1x23jR68fxznMS6XKxC2hw1Kdk"
+    },
+    {
+      "name": "fgjhjhjh",
+      "id": "FU0BAYyZGW4yFKLQc5PbnKHfy9VndIqx"
+    },
+    {
+      "deleted": true,
+      "id": "KLuYR8mJi4ArNh2WUjzyEgMrE3SvN2Q6"
+    },
+    {
+      "deleted": true,
+      "id": "QR75AowKnIhK9ACRw9wv61ZPity6QaNx"
+    },
+    {
+      "deleted": true,
+      "id": "gNZfvS0xuJf43ZxeYdbl0SZ61g8H28IJ"
+    }
+  ],
+  "users": [
+    {
+      "id": "101",
+      "username": "adminUser",
+      "email": "admin@example.com",
+      "password": "adminPassword",
+      "code": null,
+      "type": "admin"
+    },
+    {
+      "id": "102",
+      "username": "contentAdminUser",
+      "email": "contentAdmin@example.com",
+      "password": "contentAdminPassword",
+      "code": null,
+      "type": "contentAdmin"
+    },
+    {
+      "id": "105",
+      "username": "user105",
+      "email": "user105@example.com",
+      "password": "password105",
+      "code": null,
+      "type": "contentAdmin"
+    },
+    {
+      "id": "107",
+      "username": "user107",
+      "email": "user107@example.com",
+      "password": "password107",
+      "code": null,
+      "type": "user"
+    },
+    {
+      "id": "109",
+      "username": "user109",
+      "email": "user109@example.com",
+      "password": "password109",
+      "code": null,
+      "type": "user"
+    },
+    {
+      "id": "110",
+      "username": "user110",
+      "email": "user110@example.com",
+      "password": "password110",
+      "code": null,
+      "type": "user"
+    },
+    {
+      "id": "PkTzwVPWqbPQkKdlMcg645NwgEwHfKsU",
+      "username": "Testa",
+      "email": "tsahsju@d.com",
+      "password": "sámd",
+      "type": "contentAdmin",
+      "code": null
+    }
+  ],
+  "rights": [
+    {
+      "id": "deleteUserAccount",
+      "name": "Xóa Tài Khoản",
+      "status": false
+    },
+    {
+      "id": "addProductCategory",
+      "name": "Thêm Danh Mục Sản Phẩm",
+      "status": true
+    },
+    {
+      "id": "editProductCategory",
+      "name": "Sửa Danh Mục Sản Phẩm",
+      "status": true
+    },
+    {
+      "id": "deleteProductCategory",
+      "name": "Xóa Danh Mục Sản Phẩm",
+      "status": false
+    },
+    {
+      "id": "addProduct",
+      "name": "Thêm Sản Phẩm",
+      "status": true
+    },
+    {
+      "id": "editProduct",
+      "name": "Sửa Sản Phẩm",
+      "status": true
+    },
+    {
+      "id": "deleteProduct",
+      "name": "Xóa Sản Phẩm",
+      "status": false
+    }
+  ]
+}
