@@ -79,7 +79,7 @@ useEffect(()=>{
 const main =async()=>{
 
    try {
-    const rres=await fetch ('http://localhost:5000/users') 
+    const rres=await fetch ('/api/users') 
     if(!rres.ok){
         throw new Error ("Not responding")
     }
@@ -103,7 +103,7 @@ const main =async()=>{
         checkRights(User)
         console.log("vào đây",rights)
         try{
-            const resp = await fetch(`http://localhost:5000/rights`)
+            const resp = await fetch(`/api/rights`)
             if(!resp.ok){
                 throw new Error("not responding")
             }

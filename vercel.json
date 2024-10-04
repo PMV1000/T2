@@ -6,7 +6,7 @@
   },
   "builds": [
     {
-      "src": "public/**/*",
+      "src": "build/**/*",
       "use": "@vercel/static"
     },
     {
@@ -20,7 +20,5 @@
       "dest": "/api/db.js"
     }
   ],
-  "env": {
-    
-  }
+  "env": {}
 }

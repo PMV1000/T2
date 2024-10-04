@@ -23,7 +23,7 @@ const ManageProduct = () => {
   useEffect(()=>{
     const fetchPro = async ()=>{
         try{
-            const response = await fetch (`http://localhost:5000/products`)
+            const response = await fetch (`/api/products`)
             if(!response.ok){
                 throw new Error("Not Responding")
             }
@@ -36,7 +36,7 @@ const ManageProduct = () => {
     }
     const fetchCat = async ()=>{
         try{
-            const response = await fetch (`http://localhost:5000/categories`)
+            const response = await fetch (`/api/categories`)
             if(!response.ok){
                 throw new Error("Not Responding")
             }
@@ -103,13 +103,13 @@ const ManageProduct = () => {
     const id =cryptoRandomString({length:32,"type":"alphanumeric"})
     const c=he.decode(content.replace(/<[^>]*>/g,''))  
     // Giải mã HTML entities va cờ toàn cục g để loại bỏ toàn bộ
-    await fetch (`http://localhost:5000/products`,{
+    await fetch (`/api/products`,{
       method:"POST",
       headers:{"content-Type":"application/json"},
       body: JSON.stringify({id:id,name:name,price:price,catagoly:category,desc:c,discount:0,isFeature:feature,deleted:false,image:image[0]})
     })
     const CARTCHILD = catergories.find(cat=>cat.id===category)
-    await fetch(`http://localhost:5000/categories/${category}`,{
+    await fetch(`/api/categories/${category}`,{
       method:"PUT",
       headers:{"content-Type":"application/json"},
       body:JSON.stringify({categoryChild :[...CARTCHILD,id]})
@@ -120,7 +120,7 @@ const ManageProduct = () => {
   }
   const RMPro= async (id)=>{
 
-  await fetch (`http://localhost:5000/products/${id}`,{
+  await fetch (`/api/products/${id}`,{
         method:"PATCH",
         headers:{"content-Type":"application/json"},
         body: JSON.stringify({deleted:true})
@@ -132,7 +132,7 @@ const ManageProduct = () => {
 
   const ChangeFeature = async (event,id)=>{
     const status=event.target.checked
-    await fetch (`http://localhost:5000/products/${id}`,{
+    await fetch (`/api/products/${id}`,{
       method:"PATCH",
       headers:{"content-Type":"application/json"},
       body: JSON.stringify({isFeature:status})

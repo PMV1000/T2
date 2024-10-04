@@ -12,7 +12,7 @@ const ManageCategory = () => {
         ()=>{
             const fetchCat= async()=>{
                 try{
-                    const response = await fetch (`http://localhost:5000/categories`)
+                    const response = await fetch (`/api/categories`)
                     if(!response.ok){
                         throw new Error("Not Responding")
                     }
@@ -50,14 +50,14 @@ const ManageCategory = () => {
         else{
             try{
                 const id=cryptoRandomString({length:32,"type":'alphanumeric'})
-            await fetch(`http://localhost:5000/categories`,{
+            await fetch(`/api/categories`,{
                 method:"POST",
                 headers:{"content-Type":"application/json"},
                 body:JSON.stringify({id:id,name:catName,categoryChild:null,productIds:[]})
             })
             if(supCat){
                 const Sup=Categories.find(cat=>cat.id===supCat)
-                const resp =await fetch(`http://localhost:5000/categories/${supCat}`,{
+                const resp =await fetch(`/api/categories/${supCat}`,{
                     method:"PUT",
                     headers:{"content-Type":"application/json"},
                     body:JSON.stringify({categoryChild:Sup.categoryChild?[...Sup.categoryChild,id]:[id]})
@@ -76,7 +76,7 @@ const ManageCategory = () => {
     }
 
     const RemoveCat= async (id)=>{
-      await fetch (`http://localhost:5000/categories/${id}`,{
+      await fetch (`/api/categories/${id}`,{
         method:"PUT",
         headers:{"content-Type":"application/json"},
         body:JSON.stringify({deleted:true})
@@ -97,7 +97,7 @@ const ManageCategory = () => {
         else{
             try{
                 
-            const res= await fetch(`http://localhost:5000/categories/${id}`,{
+            const res= await fetch(`/api/categories/${id}`,{
                 method:"PATCH",
                 headers:{"content-Type":"application/json"},
                 body:JSON.stringify({name:catName})
@@ -120,7 +120,7 @@ const ManageCategory = () => {
       const OldChilds = Categories.find(cat=>cat.id===id).categoryChild
       if(OldChilds){
         if(!OldChilds.find(OldChilds.id===childId)){
-          await fetch (`http://localhost:5000/categories/${id}`,{
+          await fetch (`/api/categories/${id}`,{
             method:"PATCH",
             headers:{"content-Type":"application/json"},
             body:JSON.stringify({categoryChild:[...OldChilds,childId]})
@@ -129,7 +129,7 @@ const ManageCategory = () => {
         window.location.reload()
       }
       else{
-        await fetch (`http://localhost:5000/categories/${id}`,{
+        await fetch (`/api/categories/${id}`,{
           method:"PATCH",
           headers:{"content-Type":"application/json"},
           body:JSON.stringify({categoryChild:[childId]})
@@ -143,7 +143,7 @@ const ManageCategory = () => {
       const OldChilds = Categories.find(cat=>cat.id===supId).categoryChild
       if(OldChilds){
         if(OldChilds.find(OldChilds.id===childId)){
-          await fetch (`http://localhost:5000/categories/${supId}`,{
+          await fetch (`/api/categories/${supId}`,{
             method:"PATCH",
             headers:{"content-Type":"application/json"},
             body:JSON.stringify({categoryChild:OldChilds.filter(child=>child!==id)})
@@ -160,7 +160,7 @@ const ManageCategory = () => {
       
         e.preventDefault()
       try{
-        const response = await fetch (`http://localhost:5000/products`)
+        const response = await fetch (`/api/products`)
         if(!response.ok){
           throw new Error ("Not Res")
         }
@@ -169,7 +169,7 @@ const ManageCategory = () => {
           const OldPros = Categories.find(cat=>cat.id===id).productIds
           if(OldPros){
             if(!OldPros.find(OldPros.id===ProId)){
-              await fetch (`http://localhost:5000/categories/${id}`,{
+              await fetch (`/api/categories/${id}`,{
                 method:"PATCH",
                 headers:{"content-Type":"application/json"},
                 body:JSON.stringify({productIds:[...OldPros,ProId]})
@@ -177,7 +177,7 @@ const ManageCategory = () => {
             }
           }
           else{
-            await fetch (`http://localhost:5000/categories/${id}`,{
+            await fetch (`/api/categories/${id}`,{
               method:"PATCH",
               headers:{"content-Type":"application/json"},
               body:JSON.stringify({productIds:[ProId]})
@@ -212,7 +212,7 @@ const ManageCategory = () => {
       const OldPros = Categories.find(cat=>cat.id===supId).productIds
       if(OldPros){
         if(OldPros.find(OldPros.id===id)){
-          await fetch (`http://localhost:5000/categories/${supId}`,{
+          await fetch (`/api/categories/${supId}`,{
             method:"PATCH",
             headers:{"content-Type":"application/json"},
             body:JSON.stringify({categoryPro:OldPros.filter(Pro=>Pro!==id)})
