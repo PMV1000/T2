@@ -30,7 +30,7 @@ function Cart() {
     }
     setCart(Newdata)
     setId('')
-  await fetch (`http://localhost:5000/carts/1`,{
+  await fetch (`/api/carts/1`,{
       method:"PUT",
       headers:{
         "content-Type":"application/json",
@@ -54,7 +54,7 @@ function Cart() {
 
 
    
-    await fetch (`http://localhost:5000/carts/1`,{
+    await fetch (`/api/carts/1`,{
       method:"PUT",
       headers:{
         "content-Type":"application/json",
@@ -78,7 +78,7 @@ function Cart() {
    
     setCart(NDT)
 
-    await fetch('http://localhost:5000/carts/1',{
+    await fetch('/api/carts/1',{
       method:"PUT",headers:{"content-Type":"application/json"},
       body:JSON.stringify(NDT)
     })
@@ -89,7 +89,7 @@ function Cart() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:5000/products');
+        const response = await fetch('/api/products');
         if (!response.ok) {
           throw new Error("Network response wasn't ok");
         }
@@ -108,7 +108,7 @@ function Cart() {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const resp = await fetch('http://localhost:5000/carts/1');
+        const resp = await fetch('/api/carts/1');
         if (!resp.ok) {
           throw new Error("Network response wasn't ok");
         }

@@ -181,7 +181,7 @@ const Header =  () => {
 //bắt đầu sẽ fetch toàn bộ dữ liệu
 useEffect(() =>{ const fetchCat= async ()=>{ 
     try{
-      const response = await  fetch (`http://localhost:5000/categories`)
+      const response = await  fetch (`/api/categories`)
        if(!response.ok){
       throw new Error("Not Responding")
     }
@@ -202,7 +202,7 @@ useEffect(() => {
     const fetchPro = async() =>{
       try{
 
-      const response = await fetch (`http://localhost:5000/products`)
+      const response = await fetch (`/api/products`)
        if(!response.ok){
         throw new Error("Not responding")
       }
@@ -232,7 +232,7 @@ useEffect(()=>{
 const main =async()=>{
 
    
-    const rres=await fetch ('http://localhost:5000/users') 
+    const rres=await fetch ('/api/users') 
     const users = await rres.json()
     const User = users.find(item=>item.code===Code)
     if(User){

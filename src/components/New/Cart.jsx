@@ -23,7 +23,7 @@ function Cart() {
     if(cart){
         const actionPayload = { productId: Id, quantity: quan}
         dispatch(addToCart(actionPayload))
-  await fetch (`http://localhost:5000/carts/${user.id}`,{
+  await fetch (`/api/carts/${user.id}`,{
       method:"PUT",
       headers:{
         "content-Type":"application/json",
@@ -43,7 +43,7 @@ function Cart() {
     
     dispatch(removeFormCar(id))
 
-    await fetch(`http://localhost:5000/carts/${user.id}`,{
+    await fetch(`/api/carts/${user.id}`,{
       method:"PUT",headers:{"content-Type":"application/json"},
       body:JSON.stringify(cart)
     })
@@ -55,7 +55,7 @@ function Cart() {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const resp = await fetch(`http://localhost:5000/carts/${user.id}`);
+        const resp = await fetch(`/api/carts/${user.id}`);
         if (!resp.ok) {
           throw new Error("Network response wasn't ok");
         }

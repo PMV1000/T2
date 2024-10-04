@@ -15,7 +15,7 @@ const SiderUser= (user) =>{
 
     // const main =async()=>{
     //     const Code = Cookies.get('code')
-    //     const rres=await fetch ('http://localhost:5000/users') 
+    //     const rres=await fetch ('/api/users') 
     //     const users = await rres.json()
     //     const User = users.find(item=>item.code===Code)
     //     if(User){
@@ -41,7 +41,7 @@ const logout = async()=>{
 
     siderUser.classList.toggle('hidden')
     const newU = {...user.user,code:null}
-    await fetch (`http://localhost:5000/users/${user.user.id}`,{method:"PUT", 
+    await fetch (`/api/users/${user.user.id}`,{method:"PUT", 
         headers:{"content-Type":"application/json"},
         body: JSON.stringify(newU)
     })
@@ -66,9 +66,9 @@ const changeUserName = (e)=>{
 const submit = async (e)=>{
     e.preventDefault()
     
-    if(email && userName){console.log(`http://localhost:5000/users/${user.user.id}` )
+    if(email && userName){console.log(`/api/users/${user.user.id}` )
         const newU = {...user.user,email:email,username:userName}
-        await fetch (`http://localhost:5000/users/${user.user.id}`,{method:"PUT", 
+        await fetch (`/api/users/${user.user.id}`,{method:"PUT", 
             headers:{"Content-Type":"application/json"},
             body: JSON.stringify(newU)
         })
@@ -78,7 +78,7 @@ const submit = async (e)=>{
     else{
         if(email){
             const newU = {...user.user,email:email}
-            await fetch (`http://localhost:5000/users/${user.user.id}`,{method:"PUT", 
+            await fetch (`/api/users/${user.user.id}`,{method:"PUT", 
                 headers:{"content-Type":"application/json"},
                 body: JSON.stringify(newU)
             })
@@ -88,7 +88,7 @@ const submit = async (e)=>{
         }
         else if(userName){
             const newU ={...user.user,username:userName}
-            await fetch (`http://localhost:5000/users/${user.user.id}`,{method:"PUT", 
+            await fetch (`/api/users/${user.user.id}`,{method:"PUT", 
                 headers:{"content-Type":"application/json"},
                 body: JSON.stringify(newU)
             })
@@ -120,7 +120,7 @@ const submitPW= async (e)=>{
     if(OldPW&&NewPW){
         if(OldPW=== user.user.password){
             const newU ={...user.user,password:NewPW}
-            await fetch (`http://localhost:5000/users/${user.user.id}`,{method:"PUT", 
+            await fetch (`/api/users/${user.user.id}`,{method:"PUT", 
                 headers:{"content-Type":"application/json"},
                 body: JSON.stringify(newU)
             })

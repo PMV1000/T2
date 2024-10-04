@@ -20,7 +20,7 @@ useEffect(
 const goHome = async ()=>{
     try{
     const Code = Cookies.get('code')
-    const rres=await fetch ('http://localhost:5000/users')
+    const rres=await fetch ('/api/users')
     if(!rres.ok){
         throw new Error("Not Responding")
     } 
@@ -68,7 +68,7 @@ goHome()
         const check = userName.includes('@') && (userName.endsWith(".com") || userName.endsWith(".vn"))
         var exist = ''
        
-        const response = await fetch('http://localhost:5000/users');
+        const response = await fetch('/api/users');
         const user = await response.json()
       
         if(type==="login"){
@@ -83,7 +83,7 @@ goHome()
                 const code = cryptoRandomString({length:32, type:'alphanumeric'})
                 Cookies.set("code",code,{expires:0.04})
                 const Newdata = {...exist,code:code}
-                await fetch(`http://localhost:5000/users/${exist.id}`,{
+                await fetch(`/api/users/${exist.id}`,{
                     method:"PUT", 
                     headers:{"content-Type":"application/json"},
                     body:JSON.stringify(Newdata)
@@ -110,7 +110,7 @@ goHome()
                 const code = cryptoRandomString({length:32, type:'alphanumeric'})
                 Cookies.set("code",code,{expires:0.04})
                 const NewUser = {id:cryptoRandomString({length:32, type:'numeric'}),username:userName,email:email,password:pass,code:code}
-                await fetch(`http://localhost:5000/users`,{
+                await fetch(`/api/users`,{
                     method:"POST", 
                     headers:{"content-Type":"application/json"},
                     body:JSON.stringify(NewUser)

@@ -10,7 +10,7 @@ const [categories,setcat]=useState([])
 const [categoryProduct,setProduct]= useState([])
  useEffect(() =>{ const fetchCat= async ()=>{ 
   try{
-    const response = await  fetch (`http://localhost:5000/categories`)
+    const response = await  fetch (`/api/categories`)
      if(!response.ok){
     throw new Error("Not Responding")
   }
@@ -30,7 +30,7 @@ const [categoryProduct,setProduct]= useState([])
     const fetchPro = async() =>{
       try{
 
-      const response = await fetch (`http://localhost:5000/products`)
+      const response = await fetch (`/api/products`)
        if(!response.ok){
         throw new Error("Not responding")
       }

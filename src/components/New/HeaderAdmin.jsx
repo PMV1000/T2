@@ -85,7 +85,7 @@ useEffect(()=>{
 const main =async()=>{
 
    try {
-    const rres=await fetch ('http://localhost:5000/users') 
+    const rres=await fetch ('/api/users') 
     if(!rres.ok){
         throw new Error ("Not responding")
     }
@@ -109,7 +109,7 @@ const main =async()=>{
         checkRights(User)
         console.log("vào đây",rights)
         try{
-            const resp = await fetch(`http://localhost:5000/rights`)
+            const resp = await fetch(`/api/rights`)
             if(!resp.ok){
                 throw new Error("not responding")
             }
@@ -154,7 +154,7 @@ useEffect(() => {
     const fetchPro = async() =>{
       try{
 
-      const response = await fetch (`http://localhost:5000/products`)
+      const response = await fetch (`/api/products`)
        if(!response.ok){
         throw new Error("Not responding")
       }
@@ -179,7 +179,7 @@ useEffect(() => {
   
 useEffect(() =>{ const fetchCat= async ()=>{ 
     try{
-      const response = await  fetch (`http://localhost:5000/categories`)
+      const response = await  fetch (`/api/categories`)
        if(!response.ok){
       throw new Error("Not Responding")
     }

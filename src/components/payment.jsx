@@ -25,7 +25,7 @@ const Payment = ()=>{
         const fetchProducts= async()=>{
             try{
             const products= await Promise.all(SelectPro.map(async (item)=>{
-                const Respro = await fetch(`http://localhost:5000/products/${item.id}`) 
+                const Respro = await fetch(`/api/products/${item.id}`) 
                 if(!Respro.ok){
                     throw new Error("not responding")
                 }
