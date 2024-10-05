@@ -4,12 +4,6 @@
       "runtime": "nodejs16.x"
     }
   },
-  "builds": [
-    {
-      "src": "public/**/*",
-      "use": "@vercel/static"
-    }
-  ],
   "routes": [
     {
       "src": "/api/(.*)",
