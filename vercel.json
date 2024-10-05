@@ -1,13 +1,17 @@
 {
   "functions": {
     "api/**/*.js": {
-      "runtime": "nodejs16.x"
+      "runtime": "nodejs14.x"
     }
   },
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "/api/db.js"
+    },
+    {
+      "src": "/public/(.*)",
+      "dest": "/public/$1"
     }
   ],
   "env": {}
