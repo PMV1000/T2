@@ -30,7 +30,7 @@
   },
 "scripts": {
   "start": "concurrently \"json-server --watch database.json --port 5000\" \"react-scripts start\"",
-  "build": "echo 'No build step required'",
+  "build": "react-scripts build",
   "test": "react-scripts test",
   "eject": "react-scripts eject"
 },
