@@ -63,5 +63,10 @@
   "main": "tailwind.config.js",
   "author": "",
   "license": "ISC",
-  "keywords": []
+  "keywords": [],
+
+  "engines": {
+  "node": "14.x"
+}
+
 }
