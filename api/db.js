@@ -2,7 +2,8 @@ import jsonServer from 'json-server';
 import path from 'path';
 
 const server = jsonServer.create();
-const router = jsonServer.router(path.join(__dirname, '../database.json')); // Đường dẫn đến database.json
+const router = jsonServer.router(path.join(__dirname, '../database.json'));
+// Đường dẫn đến database.json
 const middlewares = jsonServer.defaults();
 
 // Sử dụng middlewares
