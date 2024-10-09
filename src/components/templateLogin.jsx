@@ -44,7 +44,7 @@ const goHome = async ()=>{
 goHome()
 
 
-},[CODE]
+},[CODE,navigate]
 )
     const changeUserName = (e)=>{
         const UN = e.target.value
@@ -134,11 +134,11 @@ goHome()
                     <input onChange={changemail} className={(type === "login")?'hidden ':"border-2 border-gray-300 rounded-md w-2/3 ml-12 md:ml-20  mt-2 md:mt-3 h-6 p-2 text-lg text-gray-500 "} type="email"  autoComplete="on"  required={(type==="login")?false:true} placeholder="Email"/>
                     <hr  className="mt-4 md:mt-6 text-red-300 w-full"/>
                     <label  htmlFor="goole" className=" w-full h-2 md:mt-4 text-center mr-4 md:text-lg text-md text-orange-400 md:font-medium"> Hoặc </label>
-                    <a href="#" className=" no-underline  text-center border-2 border-gray-500 rounded-md w-3/4 ml-10 md:ml-16 flex md:mt-10  mt-6 md:mb-3 md:mt-3 md:h-10 h-8  text-md text-gray-700 "  >  
-                        <img  className="md:h-9 h-7 w-10 bg-transparent" src="/image/google.webp"/>
+                    <a href="#dfg" className=" no-underline  text-center border-2 border-gray-500 rounded-md w-3/4 ml-10 md:ml-16 flex md:mt-10  mt-6 md:mb-3 md:mt-3 md:h-10 h-8  text-md text-gray-700 "  >  
+                        <img  className="md:h-9 h-7 w-10 bg-transparent" src="/image/google.webp" alt="..."/>
                         <span  className="text-sm w-3/4 mt-1 md:font-medium  " >{type==="login"?'Đăng Nhập':'Tiếp Tục'} Với Google</span> </a>
-                    <a  href="#" className=" no-underline  border-2 border-gray-500 rounded-md w-3/4 ml-10 md:ml-16 flex  mt-2  md:h-10 h-8  text-md text-gray-700 "  > 
-                        <img  className="h-7 md:h-9 w-10 bg-transparent" src="/image/facebook.webp"/>
+                    <a  href="#sdf" className=" no-underline  border-2 border-gray-500 rounded-md w-3/4 ml-10 md:ml-16 flex  mt-2  md:h-10 h-8  text-md text-gray-700 "  > 
+                        <img  className="h-7 md:h-9 w-10 bg-transparent" src="/image/facebook.webp" alt="..."/>
                         <span className="text-sm md:w-3/4 mt-1 md:font-medium  text-center ">{type==="login"?'Đăng Nhập':'Tiếp Tục'} Với Facebook</span></a>
                     <button  type="submit" className="text-xl ml-40 text-white bg-orange-500 rounded-md p-1 font-medium h-9 w-40 mt-4">Đăng{type==="login" ? "Nhập" : "Kí"}</button>
                     <span className="w-full flex justify-center text-sm md:text-lg flex mt-4 ">{type==="login"?'Chưa':'Đã'} có tài khoản?

@@ -4,7 +4,22 @@ import { Editor } from '@tinymce/tinymce-react';
 import he from 'he'
 import cryptoRandomString from "crypto-random-string";
 import HeaderAdmin from'./headerAdmin'
-import { json } from "react-router-dom";
+      // {/* 
+
+      // // script(src="https://cdn.tiny.cloud/1/5fxl12ux1gwq75ukb0yjklc0rc23764knyyf5lb8rq6x6qij/tinymce/7/tinymce.min.js" referrerpolicy="origin")
+      // // script.
+      // //   tinymce.init({
+      // //     selector: '#mytextarea',
+      // //     plugins: [
+      // //       'a11ychecker', 'advlist', 'advcode', 'advtable', 'autolink', 'checklist', 'markdown',
+      // //       'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks',
+      // //       'powerpaste', 'fullscreen', 'formatpainter', 'insertdatetime', 'media', 'table', 'help', 'wordcount'
+      // //     ],
+      // //     toolbar: 'undo redo | formatpainter casechange blocks | bold italic backcolor | ' +
+      // //       'alignleft aligncenter alignright alignjustify | ' +
+      // //       'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help',
+
+      // //   }); */}
 
 const ManageProduct = () => {
   const [content, setContent] = useState('');
@@ -19,9 +34,10 @@ const ManageProduct = () => {
 
   const [products,setPro]=useState([])
   const [catergories,setCat]=useState([])
-
+console.log(imagefile)
   useEffect(()=>{
     const fetchPro = async ()=>{
+      
         try{
             const response = await fetch (`/api/products`)
             if(!response.ok){
@@ -92,7 +108,7 @@ const ManageProduct = () => {
 
   }
   const reset = (id=[])=>{
-    id.map(Id=>{
+    id.forEach(Id=>{
     const E= document.getElementById(Id)
     E.value=''
     })
@@ -202,10 +218,10 @@ const ManageProduct = () => {
                   'searchreplace visualblocks code fullscreen',
                   'insertdatetime media table paste code help wordcount'
                 ],
-                toolbar:
-                  'undo redo | formatselect | bold italic backcolor | \
-                  alignleft aligncenter alignright alignjustify | \
-                  bullist numlist outdent indent | removeformat | help',
+                toolbar: 'undo redo | formatselect | bold italic backcolor | ' +
+                'alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | removeformat | help',
+       
                 content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
                 setup: (editor) => {
                   editor.on('init', () => {
@@ -243,7 +259,7 @@ const ManageProduct = () => {
                                   <tr className="h-68  text-sm">
                                       <td> {pro.id}</td>
                                       <td>
-                                          <img className="md:w-48 w-24 h-20 md:mb-8 md:h-36" src='/image/images1.jpg'/></td>
+                                          <img className="md:w-48 w-24 h-20 md:mb-8 md:h-36" src='/image/images1.jpg' alt=".."/></td>
                                       <td> {pro.name}</td>
                                       <td> {pro.desc}? Accusamus error labore dolor, delectus adipisci fugit ut, nemo quis incidunt eaque, aut quod.</td>
                                       <td> {(pro.price*(1- pro.discount)).toFixed(3)} đ </td>
@@ -266,22 +282,7 @@ const ManageProduct = () => {
               </div></main></body>
           )
       }
-      {/* 
 
-      // script(src="https://cdn.tiny.cloud/1/5fxl12ux1gwq75ukb0yjklc0rc23764knyyf5lb8rq6x6qij/tinymce/7/tinymce.min.js" referrerpolicy="origin")
-      // script.
-      //   tinymce.init({
-      //     selector: '#mytextarea',
-      //     plugins: [
-      //       'a11ychecker', 'advlist', 'advcode', 'advtable', 'autolink', 'checklist', 'markdown',
-      //       'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks',
-      //       'powerpaste', 'fullscreen', 'formatpainter', 'insertdatetime', 'media', 'table', 'help', 'wordcount'
-      //     ],
-      //     toolbar: 'undo redo | formatpainter casechange blocks | bold italic backcolor | ' +
-      //       'alignleft aligncenter alignright alignjustify | ' +
-      //       'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help',
-
-      //   }); */}
 
       export default ManageProduct;
       

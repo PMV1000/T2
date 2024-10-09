@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import SiderUser from '../siderUser'
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 
 const HeaderAdmin =()=>{
 
-    var Code=''
-    const [code,setCode]= useState('')
+    // var Code=''
+    const [Code , setCode ]=useState('')
     const [ser,setUser]= useState({})
     const [rights,setRight]=useState([])
    
     const navigate =useNavigate()
 
-    const checkRights= (ser)=>{
+    const checkRights= useCallback((ser)=>{
       
         if(ser.type==="contentAdmin"){
             
@@ -31,7 +31,7 @@ const HeaderAdmin =()=>{
 
             const contentU = document.querySelector("#manageUser")
 
-            if(tabRight,tabaddAdmin,tabManageUser,contentA,contentRight,contentU){
+            if(tabRight&&tabaddAdmin&&tabManageUser&&contentA&&contentRight&&contentU){
                 const ParentA = tabaddAdmin.parentElement
                 const ParentRight = tabRight.parentElement
                 tabRight.classList.remove("active")
@@ -71,11 +71,12 @@ const HeaderAdmin =()=>{
     else{
         console.log("sai")
     }
-    }
+    }, [rights])
 
 useEffect(()=>{
  
-    Code = Cookies.get('code')
+    setCode(Cookies.get('code'))
+
 const main =async()=>{
 
    try {
@@ -89,7 +90,6 @@ const main =async()=>{
         if(User && User.type!=="contentAdmin" && User.type!=="admin"){
         navigate('/')
     }
-       setCode(Code)
       setUser(User)
       
        
@@ -133,7 +133,7 @@ const main =async()=>{
 main()
 
 
-},[])
+},[Code,checkRights,navigate,rights])
   
 useEffect(() => {
     console.log("User updated:", ser);
@@ -141,7 +141,7 @@ useEffect(() => {
 
     checkRights(ser)
      // Theo dõi khi ser thay đổi
-}, [ser,rights]);
+}, [ser,checkRights,rights]);
 
 console.log("ngoai",ser)
 

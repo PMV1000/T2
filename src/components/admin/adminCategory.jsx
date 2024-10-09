@@ -57,7 +57,7 @@ const ManageCategory = () => {
             })
             if(supCat){
                 const Sup=Categories.find(cat=>cat.id===supCat)
-                const resp =await fetch(`/api/categories/${supCat}`,{
+                await fetch(`/api/categories/${supCat}`,{
                     method:"PUT",
                     headers:{"content-Type":"application/json"},
                     body:JSON.stringify({categoryChild:Sup.categoryChild?[...Sup.categoryChild,id]:[id]})
@@ -243,7 +243,7 @@ const ManageCategory = () => {
 
 
     const reset = (id=[])=>{
-        id.map(Id=>{
+        id.forEach(Id=>{
         const E= document.getElementById(Id)
         E.value=''
         })}

@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import cryptoRandomString from 'crypto-random-string';
+
+
 import HeaderAdmin from'./headerAdmin'
+import { useDispatch, useSelector } from "react-redux";
+import { setUsers,removeAcc } from "../../action/users";
 const Admin = ()=>{
     const [existAccountAdmind,setexist]=useState(true)
     const [existError,setErrorExist]=useState('')
@@ -9,51 +13,39 @@ const Admin = ()=>{
     const [AccountAdmindPassWord,setpassword]=useState('')
     const [AccountAdmindId,setId]=useState('')
     const [id,setRMid]=useState('')
-    const [users,setUsers] = useState([])
-    const [rights,setrights] = useState([])
-
+    const users=useSelector(state=>state.users.users)
+    const rights=useSelector(state=>state.rights.rights)
+    const dispatch = useDispatch()
+ 
 //ở đây có thể fetch riêng trong file vì chỉ có tab manageUser trong page là sử dụng 
     useEffect(()=>{
         const fetchU = async ()=>{
             try{
-        const response = await fetch('http://localhost:5000/users')
+        const response = await fetch('/api/users')
         const Users = await response.json()
-        setUsers(Users)
-
+        
         if(!response){
             throw new Error("Not Response")
-        } }
+        } 
+
+        dispatch(setUsers(Users))
+    
+    }
         catch (err){
             console.error('Fetch Data Error')
 
         }
-       
-    }
-        const fetchRights = async ()=>{
-            try{
-        const response = await fetch('http://localhost:5000/rights')
-        const Rights = await response.json()
-        setrights(Rights)
 
-        if(!response){
-            throw new Error("Not Response")
-        } }
-        catch (err){
-            console.error('Fetch Data Error')
-
-        }
+      
        
     }
 
-  
-
-    fetchRights()
     
      fetchU()
 
      
 
-    },[])
+    },[dispatch])
 
     const changeAApassword =(e)=>{
         e.preventDefault()
@@ -88,13 +80,15 @@ const Admin = ()=>{
                 setTimeout(()=>{setErrorExist('')},8000)
             }
             else{
-             await fetch (`http://localhost:5000/users/`,{
+                dispatch(addAdmin({username:AccountAdmindName,id:cryptoRandomString({length:32,type:"alphanumeric"}),email:AccountAdmindEmail,password:AccountAdmindPassWord,type:"contentAdmin",code:null}))
+            
+             await fetch (`/api/users/`,{
                 method:"POST",
                 headers:{"content-Type":"application/json"},
-                body:JSON.stringify({username:AccountAdmindName,id:cryptoRandomString({length:32,type:"alphanumeric"}),email:AccountAdmindEmail,password:AccountAdmindPassWord,type:"contentAdmin",code:null})
+                body:JSON.stringify(users)
                
              }) 
-             window.location.reload();
+             
               } 
             const IPE=document.getElementById('email')
              IPE.value=""
@@ -107,7 +101,7 @@ const Admin = ()=>{
         
         else if(AccountAdmindId){
        
-           const response= await fetch (`http://localhost:5000/users/${AccountAdmindId}`,{
+           const response= await fetch (`/api/users/${AccountAdmindId}`,{
             method:"PATCH",
             headers:{"content-Type":"application/json"},
             body:JSON.stringify({type:"contentAdmin"})
@@ -133,9 +127,10 @@ const Admin = ()=>{
 
     const RMuser=async ()=>{
         console.log("nhấn",id)
-        // const updatedUserList = users.filter(user => user.id !== id);
+        dispatch(removeAcc(id))
+        
         try {
-            const response = await fetch(`http://localhost:5000/users/${id}`, {
+            const response = await fetch(`/api/users/${id}`, {
                 method: 'DELETE',
                 headers: {
                   'content-Type': 'application/json'
@@ -147,7 +142,7 @@ const Admin = ()=>{
               throw new Error('Network response was not ok.');
             }
 
-            window.location.reload();
+            
             
       
 
@@ -161,7 +156,7 @@ const Admin = ()=>{
     const ChangeRights = async (event,id)=>{
         const status=event.target.checked
         console.log(status)
-        await fetch (`http://localhost:5000/rights/${id}`,{
+        await fetch (`/api/rights/${id}`,{
           method:"PATCH",
           headers:{"content-Type":"application/json"},
           body: JSON.stringify({status:status})

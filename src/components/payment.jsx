@@ -7,11 +7,11 @@ const Payment = ()=>{
     const navigate = useNavigate()
     const location = useLocation()
     const TOrF =location.state?.formcart||false
-    const SelectPro =location.state?.selectedProduct||[]
+    
     const [Product,setProducts] = useState([])
 
     useEffect(()=>{
-
+        const SelectPro = location.state?.selectedProduct || [];
          if(!TOrF||!SelectPro){
         navigate('/')}
 
@@ -48,7 +48,7 @@ const Payment = ()=>{
              }
 
              
-    },[])
+    },[location.state,TOrF,navigate])
    
     const compure =()=>{
         return Product.reduce((total,pro)=>{return total+(pro.quan*pro.info.price*(1-pro.info.discount))},0)

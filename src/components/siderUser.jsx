@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Cookies from 'js-cookie';
-import { useLocation, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 const SiderUser= (user) =>{
     const navigate = useNavigate()
 

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import {  useLocation } from 'react-router-dom';
 import Card from './card'
 const Home = () => {
     const [products, setProducts] = useState([]);
     const [sorted, setSorted]=useState([])
     const [currentPage, setPage]=useState(1)
     const [QuanPage, setQuanPage]=useState(9)
-    const [reload,setReload] = useState(false)
+  
    
     // Trong đó currentPage[0] lưu trang đang chọn, ...[1] lưu số trang ở đầu dãy , [2] lưu tổng ố trang hiện có
    

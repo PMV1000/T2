@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
+
 
 function Cart() {
   const [dataCartProduct, setData] = useState([]);
@@ -12,11 +12,9 @@ function Cart() {
   const location = useLocation()
   const Navigate = useNavigate()
 
-
-  const code = Cookies.get('code')
  
 
-  const addTocart= async (Id,quan,type='')=>{
+  const addTocart= useCallback(async (Id,quan,type='')=>{
     quan=parseInt(quan,10)
     if(cart){
     console.log(quan,"inF")
@@ -70,7 +68,7 @@ function Cart() {
    
  
 
-  }}
+  }}, [cart, setCart, setId, Navigate])
 
   const RemoveFromCart = async (id)=>{
     
@@ -171,7 +169,7 @@ function Cart() {
   
    
   }
-  }, [dataCartProduct]);
+  }, [dataCartProduct,addTocart,location.state?.ProductId,location.state?.Quantity,id]);
 
 
 

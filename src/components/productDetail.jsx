@@ -1,13 +1,11 @@
 import React from "react";
 import { useEffect,useState } from "react";
-import { useNavigate,useLocation, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 const ProductDetail = () => {
 const [product, setpro]=useState ({})
-const [error,setE]=useState('')
 const [quantity,setQuantity]= useState(1)
 
 const NaviGate = useNavigate();
-const Location = useLocation();
 const { id } = useParams();
 
 const addToCard = () => {
@@ -34,13 +32,13 @@ useEffect (
         catch (err){
             console.error(err)
            
-            setE(err)
+       
         }
     
     }
       fetchPro()
     }
-,[])
+,[id])
 
 const changeQuan =async (e)=>{
     const quan = e.target.value

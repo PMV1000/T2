@@ -68,7 +68,7 @@ const [categoryProduct,setProduct]= useState([])
 
     }
     FindPro()
-  },[key,product,cat])
+  },[key,product,categories])
 
 
  
@@ -135,7 +135,7 @@ const Ele =document.getElementById(id);
             ))}
           </div>
 
-        <div className='container z-1 mt-60  flex flex-wrap  w-full h-auto gap-3 justify-center items-center md:justify-start md:items-starttext-xl text-gray-600 font-medium'>{(categoryProduct.length==0)?(
+        <div className='container z-1 mt-60  flex flex-wrap  w-full h-auto gap-3 justify-center items-center md:justify-start md:items-starttext-xl text-gray-600 font-medium'>{(categoryProduct.length===0)?(
           <p className='w-full mx-6 mt-8 justify-center items-center text-sm md:text-lg md:ml-auto  '>Không có sản phẩm nào thuộc danh mục này</p>):(categoryProduct.map(
             pro=>(
             <Card key={pro.id} product={pro}/>

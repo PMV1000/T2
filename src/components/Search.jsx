@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import Card from './card';
 
 
 const Search = () => {
     const location = useLocation();
-    const query = location.state?.query || '';
+    // const query = location.state?.query || '';
     const filterI = location.state?.filterItems || [];
 
     return (

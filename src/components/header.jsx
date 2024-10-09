@@ -12,7 +12,7 @@ const removeDiacritics = (text) => {
 const Filter = () =>{
    const handleClick = (e)=>{
         
-        const value = e.target.value
+        // const value = e.target.value
         // console.log(value)
         const url = new URL(window.location.href)
         url.searchParams.set('sort',e.target.value)
@@ -32,14 +32,14 @@ const handleSortButtonClick = (e) => {
             }
         };
 
-const handleSortButtonOnBlur = (e)=>{
-            e.preventDefault();
-            const sortElement =document.querySelector('#sort');
-            if (!sortElement.classList.contains('hidden')){
-                sortElement.classList.add('hidden')
-            }
+// const handleSortButtonOnBlur = (e)=>{
+//             e.preventDefault();
+//             const sortElement =document.querySelector('#sort');
+//             if (!sortElement.classList.contains('hidden')){
+//                 sortElement.classList.add('hidden')
+//             }
 
-}
+// }
     return (
         <form className=' head text-white font-4  md: mx-4 '>
            <button id='sort-btn' className="fas fa-filter" onClick={handleSortButtonClick} >
@@ -173,14 +173,14 @@ const SearchForm = () => {
 }
 
 const Header =  () => {
-    var Code=''
+    
     const [code,setCode]= useState('')
     const [ser,SetUser]= useState({})
     const navigate = useNavigate()
     const location = useLocation()
     
 useEffect(()=>{
-    Code = Cookies.get('code')
+    setCode(Cookies.get('code'))
 
    
 const main =async()=>{
@@ -188,14 +188,15 @@ const main =async()=>{
    
     const rres=await fetch ('/api/users') 
     const users = await rres.json()
-    const User = users.find(item=>item.code===Code)
+    const User = users.find(item=>item.code===code)
     if(User){
-       setCode(Code)
+       
        SetUser(User)
        console.log(ser,"hh")
     
 
     }
+    else{setCode('')}
 
    
 }
@@ -203,7 +204,7 @@ main()
 
 console.log(ser,"h")
 
-},[])
+},[code,ser])
     
 
     
@@ -217,6 +218,9 @@ const siderU = (id)=>{
   
 
 
+
+useEffect(
+    ()=>{
 
 const check=()=>{
 if(location.pathname==="/"){
@@ -232,12 +236,10 @@ if(location.pathname==="/"){
     }
 }}
 
-useEffect(
-    ()=>{
-
-        check()
+check()
+    
     }
-,[ser])
+,[ser,location.pathname,navigate])
 
 
     return (
